@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 from django.http import Http404
 from django_filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
@@ -34,6 +32,15 @@ class FoodDetilView(generics.ListAPIView):
         if self.request.method in ['PUT', 'PATCH']:
             return FoodSerializer
         return FoodSerializer
+
+
+class FoodUpdateView(generics.UpdateAPIView):
+    queryset = Food.objects.all()
+    serializer_class = FoodSerializer
+
+
+class FoodDeleteView(generics.DestroyAPIView):
+    queryset = Food.objects.all()
 
 
 class LikeDislikeApiview(APIView):
