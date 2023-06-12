@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Food, LikeDislike, Comment
+from .models import Food, LikeDislike
 
 
 class FoodSerializer(serializers.ModelSerializer):
@@ -31,8 +31,3 @@ class UserLikeDislikeSerializer(serializers.ModelSerializer):
         )
 
 
-class CommentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Comment
-        fields = ('user', 'body', 'food')
-        read_only_fields = ('id',)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Food, Comment, LikeDislike
+from .models import Food,  LikeDislike
 
 
 # Register your models here.
@@ -15,6 +15,3 @@ class LIkeDislike(admin.ModelAdmin):
     list_display = ['user', 'food', 'type']
 
 
-@admin.register(Comment)
-class Comment(admin.ModelAdmin):
-    list_display = ['food', 'user']

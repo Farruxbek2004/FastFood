@@ -23,6 +23,7 @@ urlpatterns = [
     path('facebook/', include('Facebook.urls')),
     path('category/', include('Category.urls')),
     path('food/', include('Food.urls')),
+    path('comment/', include('Comment.urls'))
 ]
 
 swagger_urls = [

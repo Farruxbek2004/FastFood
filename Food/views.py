@@ -9,8 +9,8 @@ from rest_framework.views import APIView
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
-from .models import Food, LikeDislike, Comment
-from .serializers import FoodSerializer, LikeDislikeSerializer, CommentSerializer, UserLikeDislikeSerializer
+from .models import Food, LikeDislike
+from .serializers import FoodSerializer, LikeDislikeSerializer, UserLikeDislikeSerializer
 
 
 # Create your views here.
@@ -62,16 +62,6 @@ class LikeDislikeApiview(APIView):
             LikeDislike.objects.update_or_create(food=food, user=user, defaults={'type': types})
             data = {'type': types, 'detail': 'liked_or disliked'}
         return Response(data)
-
-
-class CommentView(generics.ListCreateAPIView):
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
-
-
-class CommentDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
 
 
 class UserLikedFood(APIView):

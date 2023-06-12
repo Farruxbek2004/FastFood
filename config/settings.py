@@ -56,7 +56,8 @@ INSTALLED_APPS = [
     'users',
     'Food',
     'Google',
-    'Facebook'
+    'Facebook',
+    'Comment'
 
 ]
 
